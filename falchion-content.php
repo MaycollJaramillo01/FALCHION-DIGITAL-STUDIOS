@@ -39,7 +39,8 @@ function falchion_is_active(string $path): bool
 
 function falchion_base_url(): string
 {
-    $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+    $proto  = $_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '';
+    $scheme = ($proto === 'https' || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')) ? 'https' : 'http';
     $host   = (string) ($_SERVER['HTTP_HOST'] ?? 'localhost');
 
     // Resolve the project root via filesystem: this file lives at <root>/falchion-content.php

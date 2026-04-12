@@ -10,21 +10,18 @@
     { "src": "service-page.php", "use": "vercel-php@0.7.2" },
     { "src": "service/index.php", "use": "vercel-php@0.7.2" },
     { "src": "404.php", "use": "vercel-php@0.7.2" },
-    { "src": "assets/**", "use": "@vercel/static" },
-    { "src": "partials/**", "use": "@vercel/static" },
-    { "src": "data/**", "use": "@vercel/static" }
+    { "src": "assets/**/*.*", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "handle": "filesystem" },
     { "src": "/service/([a-z0-9-]+)/?$", "dest": "/service/index.php?slug=$1" },
     { "src": "/blog/([a-z0-9-]+)/?$", "dest": "/blog-post.php?slug=$1" },
-    { "src": "^/$", "dest": "/index.php" },
     { "src": "^/about/?$", "dest": "/about.php" },
     { "src": "^/contact/?$", "dest": "/contact.php" },
     { "src": "^/services/?$", "dest": "/services.php" },
     { "src": "^/portfolio/?$", "dest": "/portfolio.php" },
     { "src": "^/blog/?$", "dest": "/blog.php" },
-    { "src": "/(.*)\\.php$", "dest": "/$1.php" },
+    { "src": "^/$", "dest": "/index.php" },
     { "src": "/(.*)", "dest": "/index.php" }
   ]
 }
