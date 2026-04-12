@@ -69,12 +69,12 @@ $canonicalUrl = rtrim($BaseURL, '/') . '/' . $canonicalPath;
                                         <div class="mega-menu__services">
                                             <span class="mega-menu__label">Solutions &amp; Services</span>
                                             <div class="mega-menu__grid">
-                                                <?php foreach ($Services as $service): ?>
-                                                <a class="mega-menu__item" href="<?= htmlspecialchars(falchion_url('service/' . $service['slug'] . '.php'), ENT_QUOTES, 'UTF-8') ?>">
-                                                    <span class="mega-menu__icon"><?= $service['icon'] ?? '' ?></span>
+                                                <?php foreach ($Services as $svc): ?>
+                                                <a class="mega-menu__item" href="<?= htmlspecialchars(falchion_url('service/' . $svc['slug'] . '.php'), ENT_QUOTES, 'UTF-8') ?>">
+                                                    <span class="mega-menu__icon"><?= $svc['icon'] ?? '' ?></span>
                                                     <div>
-                                                        <strong><?= htmlspecialchars($service['title'], ENT_QUOTES, 'UTF-8') ?></strong>
-                                                        <span><?= htmlspecialchars($service['short'], ENT_QUOTES, 'UTF-8') ?></span>
+                                                        <strong><?= htmlspecialchars($svc['title'], ENT_QUOTES, 'UTF-8') ?></strong>
+                                                        <span><?= htmlspecialchars($svc['short'], ENT_QUOTES, 'UTF-8') ?></span>
                                                     </div>
                                                 </a>
                                                 <?php endforeach; ?>
@@ -89,8 +89,8 @@ $canonicalUrl = rtrim($BaseURL, '/') . '/' . $canonicalPath;
                                 </div>
                                 <!-- Mobile submenu -->
                                 <ul class="mobile-submenu">
-                                    <?php foreach ($Services as $service): ?>
-                                    <li><a href="<?= htmlspecialchars(falchion_url('service/' . $service['slug'] . '.php'), ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($service['title'], ENT_QUOTES, 'UTF-8') ?></a></li>
+                                    <?php foreach ($Services as $svc): ?>
+                                    <li><a href="<?= htmlspecialchars(falchion_url('service/' . $svc['slug'] . '.php'), ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($svc['title'], ENT_QUOTES, 'UTF-8') ?></a></li>
                                     <?php endforeach; ?>
                                     <li><a href="<?= htmlspecialchars(falchion_url('services.php'), ENT_QUOTES, 'UTF-8') ?>"><strong>View All Services</strong></a></li>
                                 </ul>
