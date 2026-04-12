@@ -1,6 +1,8 @@
 <?php
-$heroMediaDir = 'assets/img/hero';
-$mediaFiles = [];
+$projectRoot  = dirname(__DIR__, 2);
+$heroMediaRel = 'assets/img/hero';
+$heroMediaDir = $projectRoot . '/' . $heroMediaRel;
+$mediaFiles   = [];
 
 if (is_dir($heroMediaDir)) {
     $files = scandir($heroMediaDir);
@@ -9,7 +11,7 @@ if (is_dir($heroMediaDir)) {
             $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
             if (in_array($ext, ['jpg', 'jpeg', 'png', 'webp', 'gif', 'mp4', 'webm', 'mov'])) {
                 $mediaFiles[] = [
-                    'path' => $heroMediaDir . '/' . $file,
+                    'path' => $BaseURL . $heroMediaRel . '/' . $file,
                     'type' => in_array($ext, ['mp4', 'webm', 'mov']) ? 'video' : 'image',
                     'name' => pathinfo($file, PATHINFO_FILENAME)
                 ];
