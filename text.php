@@ -30,7 +30,9 @@ $Company      = "Falchion Digital Studios";
 $CustomerName = "";
 
 function detectBaseURL() {
-  $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+  $isVercel = !empty($_SERVER['VERCEL']) || !empty($_ENV['VERCEL']);
+  $proto    = $_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '';
+  $scheme   = ($isVercel || $proto === 'https' || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')) ? 'https' : 'http';
   $host   = $_SERVER['HTTP_HOST'] ?? 'localhost';
   $script = $_SERVER['SCRIPT_NAME'] ?? '';
   $dir    = rtrim(str_replace('\\', '/', dirname($script)), '/.');

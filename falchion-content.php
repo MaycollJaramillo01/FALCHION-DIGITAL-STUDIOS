@@ -39,8 +39,9 @@ function falchion_is_active(string $path): bool
 
 function falchion_base_url(): string
 {
-    $proto  = $_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '';
-    $scheme = ($proto === 'https' || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')) ? 'https' : 'http';
+    $isVercel = !empty($_SERVER['VERCEL']) || !empty($_ENV['VERCEL']);
+    $proto    = $_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '';
+    $scheme   = ($isVercel || $proto === 'https' || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')) ? 'https' : 'http';
     $host   = (string) ($_SERVER['HTTP_HOST'] ?? 'localhost');
 
     // Resolve the project root via filesystem: this file lives at <root>/falchion-content.php
