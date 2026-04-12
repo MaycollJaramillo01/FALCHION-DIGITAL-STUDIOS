@@ -25,7 +25,7 @@ $rest     = array_slice($BlogPosts, 1);
 <!-- Featured Post -->
 <section class="blog-featured">
     <div class="container blog-featured__wrap" data-aos="fade-up">
-        <a class="blog-featured__media" href="<?= htmlspecialchars(falchion_url('blog-post.php?slug=' . urlencode($featured['slug'])), ENT_QUOTES, 'UTF-8') ?>">
+        <a class="blog-featured__media" href="<?= htmlspecialchars(falchion_url('blog/' . urlencode($featured['slug'])), ENT_QUOTES, 'UTF-8') ?>">
             <img src="<?= htmlspecialchars($BaseURL . $featured['image'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($featured['title'], ENT_QUOTES, 'UTF-8') ?>" loading="lazy">
             <div class="blog-featured__badge">Featured</div>
         </a>
@@ -36,12 +36,12 @@ $rest     = array_slice($BlogPosts, 1);
                 <span><?= htmlspecialchars($featured['read_time'], ENT_QUOTES, 'UTF-8') ?></span>
             </div>
             <h2 class="blog-featured__title">
-                <a href="<?= htmlspecialchars(falchion_url('blog-post.php?slug=' . urlencode($featured['slug'])), ENT_QUOTES, 'UTF-8') ?>">
+                <a href="<?= htmlspecialchars(falchion_url('blog/' . urlencode($featured['slug'])), ENT_QUOTES, 'UTF-8') ?>">
                     <?= htmlspecialchars($featured['title'], ENT_QUOTES, 'UTF-8') ?>
                 </a>
             </h2>
             <p class="blog-featured__excerpt"><?= htmlspecialchars($featured['excerpt'], ENT_QUOTES, 'UTF-8') ?></p>
-            <a class="blog-featured__cta" href="<?= htmlspecialchars(falchion_url('blog-post.php?slug=' . urlencode($featured['slug'])), ENT_QUOTES, 'UTF-8') ?>">
+            <a class="blog-featured__cta" href="<?= htmlspecialchars(falchion_url('blog/' . urlencode($featured['slug'])), ENT_QUOTES, 'UTF-8') ?>">
                 Read Article
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
@@ -60,7 +60,7 @@ $rest     = array_slice($BlogPosts, 1);
         <div class="blog-posts__grid">
             <?php foreach ($rest as $i => $post): ?>
             <article class="blog-card" data-aos="fade-up" data-aos-delay="<?= $i * 100 ?>">
-                <a class="blog-card__media" href="<?= htmlspecialchars(falchion_url('blog-post.php?slug=' . urlencode($post['slug'])), ENT_QUOTES, 'UTF-8') ?>">
+                <a class="blog-card__media" href="<?= htmlspecialchars(falchion_url('blog/' . urlencode($post['slug'])), ENT_QUOTES, 'UTF-8') ?>">
                     <img src="<?= htmlspecialchars($BaseURL . $post['image'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8') ?>" loading="lazy">
                     <div class="blog-card__hover">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -73,12 +73,12 @@ $rest     = array_slice($BlogPosts, 1);
                         <span><?= htmlspecialchars($post['read_time'], ENT_QUOTES, 'UTF-8') ?></span>
                     </div>
                     <h2 class="blog-card__title">
-                        <a href="<?= htmlspecialchars(falchion_url('blog-post.php?slug=' . urlencode($post['slug'])), ENT_QUOTES, 'UTF-8') ?>">
+                        <a href="<?= htmlspecialchars(falchion_url('blog/' . urlencode($post['slug'])), ENT_QUOTES, 'UTF-8') ?>">
                             <?= htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8') ?>
                         </a>
                     </h2>
                     <p class="blog-card__excerpt"><?= htmlspecialchars($post['excerpt'], ENT_QUOTES, 'UTF-8') ?></p>
-                    <a class="blog-card__link" href="<?= htmlspecialchars(falchion_url('blog-post.php?slug=' . urlencode($post['slug'])), ENT_QUOTES, 'UTF-8') ?>">
+                    <a class="blog-card__link" href="<?= htmlspecialchars(falchion_url('blog/' . urlencode($post['slug'])), ENT_QUOTES, 'UTF-8') ?>">
                         Read Article
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>

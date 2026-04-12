@@ -69,7 +69,7 @@ $metaDescriptionOverride = $post['excerpt'];
             <?php if ($prevPost || $nextPost): ?>
             <nav class="art-nav">
                 <?php if ($prevPost): ?>
-                <a class="art-nav__item art-nav__item--prev" href="<?= htmlspecialchars(falchion_url('blog-post.php?slug=' . urlencode($prevPost['slug'])), ENT_QUOTES, 'UTF-8') ?>">
+                <a class="art-nav__item art-nav__item--prev" href="<?= htmlspecialchars(falchion_url('blog/' . urlencode($prevPost['slug'])), ENT_QUOTES, 'UTF-8') ?>">
                     <span class="art-nav__dir">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
                         Previous
@@ -78,7 +78,7 @@ $metaDescriptionOverride = $post['excerpt'];
                 </a>
                 <?php endif; ?>
                 <?php if ($nextPost): ?>
-                <a class="art-nav__item art-nav__item--next" href="<?= htmlspecialchars(falchion_url('blog-post.php?slug=' . urlencode($nextPost['slug'])), ENT_QUOTES, 'UTF-8') ?>">
+                <a class="art-nav__item art-nav__item--next" href="<?= htmlspecialchars(falchion_url('blog/' . urlencode($nextPost['slug'])), ENT_QUOTES, 'UTF-8') ?>">
                     <span class="art-nav__dir">
                         Next
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -131,7 +131,7 @@ $metaDescriptionOverride = $post['excerpt'];
         <div class="art-related__grid">
             <?php foreach ($related as $i => $rel): ?>
             <article class="blog-card" data-aos="fade-up" data-aos-delay="<?= $i * 100 ?>">
-                <a class="blog-card__media" href="<?= htmlspecialchars(falchion_url('blog-post.php?slug=' . urlencode($rel['slug'])), ENT_QUOTES, 'UTF-8') ?>">
+                <a class="blog-card__media" href="<?= htmlspecialchars(falchion_url('blog/' . urlencode($rel['slug'])), ENT_QUOTES, 'UTF-8') ?>">
                     <img src="<?= htmlspecialchars($BaseURL . $rel['image'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($rel['title'], ENT_QUOTES, 'UTF-8') ?>" loading="lazy">
                     <div class="blog-card__hover">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -144,12 +144,12 @@ $metaDescriptionOverride = $post['excerpt'];
                         <span><?= htmlspecialchars($rel['read_time'], ENT_QUOTES, 'UTF-8') ?></span>
                     </div>
                     <h2 class="blog-card__title">
-                        <a href="<?= htmlspecialchars(falchion_url('blog-post.php?slug=' . urlencode($rel['slug'])), ENT_QUOTES, 'UTF-8') ?>">
+                        <a href="<?= htmlspecialchars(falchion_url('blog/' . urlencode($rel['slug'])), ENT_QUOTES, 'UTF-8') ?>">
                             <?= htmlspecialchars($rel['title'], ENT_QUOTES, 'UTF-8') ?>
                         </a>
                     </h2>
                     <p class="blog-card__excerpt"><?= htmlspecialchars($rel['excerpt'], ENT_QUOTES, 'UTF-8') ?></p>
-                    <a class="blog-card__link" href="<?= htmlspecialchars(falchion_url('blog-post.php?slug=' . urlencode($rel['slug'])), ENT_QUOTES, 'UTF-8') ?>">
+                    <a class="blog-card__link" href="<?= htmlspecialchars(falchion_url('blog/' . urlencode($rel['slug'])), ENT_QUOTES, 'UTF-8') ?>">
                         Read Article
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>
