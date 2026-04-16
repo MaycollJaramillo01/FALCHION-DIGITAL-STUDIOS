@@ -23,7 +23,6 @@ return [
     'Areas' => [
         'Estados Unidos',
         'Laurel, MD',
-        'Latinoamerica',
         'Mercados internacionales',
         'Atencion remota',
     ],

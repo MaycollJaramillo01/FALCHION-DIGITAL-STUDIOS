@@ -476,7 +476,7 @@ p { margin: 0; color: var(--muted); }
 .article-sidebar { position: sticky; top: 110px; }
 /* ── Site Footer ───────────────────── */
 .site-footer {
-    background: #06091f;
+    background: #FC7435;
     color: rgba(255,255,255,0.55);
     padding: 72px 0 0;
 }

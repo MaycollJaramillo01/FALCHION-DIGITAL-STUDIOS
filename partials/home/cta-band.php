@@ -47,7 +47,6 @@
                         <li>Liverpool &amp; North West</li>
                         <li>United Kingdom</li>
                         <li>United States</li>
-                        <li>Spain &amp; Latin America</li>
                     </ul>
                 </div>
 

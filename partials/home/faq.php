@@ -2,7 +2,7 @@
 $faqItems = [
     [
         'q' => 'Do you work with clients outside the UK?',
-        'a' => 'Absolutely. While we are based in Liverpool, we work with clients across the United Kingdom, United States, Spain and Latin America. All our services — web design, graphic design, motion graphics and digital marketing — are delivered remotely without any loss in quality or communication.',
+        'a' => 'Absolutely. While we are based in Liverpool, we work with clients across the United Kingdom and United States. All our services — web design, graphic design, motion graphics and digital marketing — are delivered remotely without any loss in quality or communication.',
     ],
     [
         'q' => 'Can you handle the entire project from start to finish?',
@@ -26,7 +26,7 @@ $faqItems = [
     ],
     [
         'q' => 'Do you offer bilingual services?',
-        'a' => 'Yes. Our team is fully bilingual in English and Spanish. We can deliver projects, communications and creative assets in both languages, which is particularly valuable for brands targeting audiences across the UK, US and Latin America.',
+        'a' => 'Yes. Our team is fully bilingual in English and Spanish. We can deliver projects, communications and creative assets in both languages, which is particularly valuable for brands targeting audiences across the UK and US.',
     ],
     [
         'q' => 'What happens after my website or project is delivered?',
