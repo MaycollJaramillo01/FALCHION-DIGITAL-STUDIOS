@@ -55,7 +55,7 @@ $defaultCat = 'all';
             <?php foreach ($galItems as $i => $item):
                 $cat      = $item['category'] ?? 'work';
                 $imgSrc   = $item['image'] ?? '';
-                $hasImg   = $imgSrc && file_exists(__DIR__ . '/../../' . $imgSrc);
+                $hasImg   = $imgSrc !== '';
                 $isFeat   = $i === 0;
                 $catLabel = $galFilters[$cat] ?? ucwords(str_replace('-', ' ', $cat));
                 $isVideo  = ($item['media_type'] ?? '') === 'video';

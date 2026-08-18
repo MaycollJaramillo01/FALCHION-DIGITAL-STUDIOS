@@ -1,27 +1,119 @@
 {
   "builds": [
-    { "src": "index.php", "use": "vercel-php@0.7.2" },
-    { "src": "about.php", "use": "vercel-php@0.7.2" },
-    { "src": "contact.php", "use": "vercel-php@0.7.2" },
-    { "src": "services.php", "use": "vercel-php@0.7.2" },
-    { "src": "portfolio.php", "use": "vercel-php@0.7.2" },
-    { "src": "blog.php", "use": "vercel-php@0.7.2" },
-    { "src": "blog-post.php", "use": "vercel-php@0.7.2" },
-    { "src": "service-page.php", "use": "vercel-php@0.7.2" },
-    { "src": "service/index.php", "use": "vercel-php@0.7.2" },
-    { "src": "404.php", "use": "vercel-php@0.7.2" },
-    { "src": "assets/**/*.*", "use": "@vercel/static" }
+    {
+      "src": "index.php",
+      "use": "vercel-php@0.7.2",
+      "config": {
+        "excludeFiles": "assets/**"
+      }
+    },
+    {
+      "src": "about.php",
+      "use": "vercel-php@0.7.2",
+      "config": {
+        "excludeFiles": "assets/**"
+      }
+    },
+    {
+      "src": "contact.php",
+      "use": "vercel-php@0.7.2",
+      "config": {
+        "excludeFiles": "assets/**"
+      }
+    },
+    {
+      "src": "services.php",
+      "use": "vercel-php@0.7.2",
+      "config": {
+        "excludeFiles": "assets/**"
+      }
+    },
+    {
+      "src": "portfolio.php",
+      "use": "vercel-php@0.7.2",
+      "config": {
+        "excludeFiles": "assets/**"
+      }
+    },
+    {
+      "src": "blog.php",
+      "use": "vercel-php@0.7.2",
+      "config": {
+        "excludeFiles": "assets/**"
+      }
+    },
+    {
+      "src": "blog-post.php",
+      "use": "vercel-php@0.7.2",
+      "config": {
+        "excludeFiles": "assets/**"
+      }
+    },
+    {
+      "src": "service-page.php",
+      "use": "vercel-php@0.7.2",
+      "config": {
+        "excludeFiles": "assets/**"
+      }
+    },
+    {
+      "src": "service/index.php",
+      "use": "vercel-php@0.7.2",
+      "config": {
+        "excludeFiles": "assets/**"
+      }
+    },
+    {
+      "src": "404.php",
+      "use": "vercel-php@0.7.2",
+      "config": {
+        "excludeFiles": "assets/**"
+      }
+    },
+    {
+      "src": "assets/**/*.*",
+      "use": "@vercel/static"
+    }
   ],
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/service/([a-z0-9-]+)/?$", "dest": "/service/index.php?slug=$1" },
-    { "src": "/blog/([a-z0-9-]+)/?$", "dest": "/blog-post.php?slug=$1" },
-    { "src": "^/about/?$", "dest": "/about.php" },
-    { "src": "^/contact/?$", "dest": "/contact.php" },
-    { "src": "^/services/?$", "dest": "/services.php" },
-    { "src": "^/portfolio/?$", "dest": "/portfolio.php" },
-    { "src": "^/blog/?$", "dest": "/blog.php" },
-    { "src": "^/$", "dest": "/index.php" },
-    { "src": "/(.*)", "dest": "/index.php" }
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/service/([a-z0-9-]+)/?$",
+      "dest": "/service/index.php?slug=$1"
+    },
+    {
+      "src": "/blog/([a-z0-9-]+)/?$",
+      "dest": "/blog-post.php?slug=$1"
+    },
+    {
+      "src": "^/about/?$",
+      "dest": "/about.php"
+    },
+    {
+      "src": "^/contact/?$",
+      "dest": "/contact.php"
+    },
+    {
+      "src": "^/services/?$",
+      "dest": "/services.php"
+    },
+    {
+      "src": "^/portfolio/?$",
+      "dest": "/portfolio.php"
+    },
+    {
+      "src": "^/blog/?$",
+      "dest": "/blog.php"
+    },
+    {
+      "src": "^/$",
+      "dest": "/index.php"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.php"
+    }
   ]
 }

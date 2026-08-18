@@ -31,7 +31,7 @@ $svcVideoMap = [
             <div class="svc-showcase__track" id="svcTrack">
                 <?php foreach ($Services as $index => $service):
                     $videoSrc = $svcVideoMap[$service['slug']] ?? '';
-                    $hasVideo = $videoSrc && file_exists(rtrim($_SERVER['DOCUMENT_ROOT'], '/') . parse_url($BaseURL, PHP_URL_PATH) . $videoSrc);
+                    $hasVideo = $videoSrc !== '';
                 ?>
                 <article class="svc-card">
                     <div class="svc-card__media">

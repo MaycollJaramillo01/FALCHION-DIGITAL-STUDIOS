@@ -1,23 +1,24 @@
 <?php
-$projectRoot  = dirname(__DIR__, 2);
+// Listed explicitly rather than scanned: the deploy serves assets/ as static
+// files that the PHP runtime cannot read, and the running order stays fixed.
 $heroMediaRel = 'assets/img/hero';
-$heroMediaDir = $projectRoot . '/' . $heroMediaRel;
-$mediaFiles   = [];
+$heroMedia = [
+    'Brand Strategy & Positioning.webp',
+    'Paid Media Campaigns.webp',
+    'amili-promo.mp4',
+    'cro.webp',
+    'hero2.mp4',
+    'seo.webp',
+];
 
-if (is_dir($heroMediaDir)) {
-    $files = scandir($heroMediaDir);
-    foreach ($files as $file) {
-        if ($file !== '.' && $file !== '..') {
-            $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
-            if (in_array($ext, ['jpg', 'jpeg', 'png', 'webp', 'gif', 'mp4', 'webm', 'mov'])) {
-                $mediaFiles[] = [
-                    'path' => $BaseURL . $heroMediaRel . '/' . $file,
-                    'type' => in_array($ext, ['mp4', 'webm', 'mov']) ? 'video' : 'image',
-                    'name' => pathinfo($file, PATHINFO_FILENAME)
-                ];
-            }
-        }
-    }
+$mediaFiles = [];
+foreach ($heroMedia as $file) {
+    $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+    $mediaFiles[] = [
+        'path' => $BaseURL . $heroMediaRel . '/' . rawurlencode($file),
+        'type' => in_array($ext, ['mp4', 'webm', 'mov'], true) ? 'video' : 'image',
+        'name' => pathinfo($file, PATHINFO_FILENAME),
+    ];
 }
 ?>
 <section class="hero dark-hero">
