@@ -5,8 +5,7 @@ $aboutTitleStr = trim((string) ($HomeAboutCopy['title_strong'] ?? ''));
 $aboutDesc     = trim((string) ($HomeAboutCopy['description'] ?? ''));
 $aboutCta      = trim((string) ($HomeAboutCopy['cta'] ?? 'Learn More'));
 
-$imageMain = 'assets/img/hero/Paid Media Campaigns.webp';
-$imageSec  = 'assets/img/hero/cro.webp';
+$introVideo = 'assets/img/videos/hero2.mp4';
 
 $expYears    = 10;
 $serviceCount = count($Services ?? []);
@@ -60,12 +59,15 @@ $iconSvgs = [
 
             <article class="orbit-about__gallery" data-aos="fade-left" data-aos-delay="150">
                 <figure class="orbit-about__photo orbit-about__photo--main orbit-about__photo--video">
-                    <video autoplay muted loop playsinline preload="metadata">
-                        <source src="assets/img/videos/hero2.mp4" type="video/mp4">
+                    <video id="orbit-intro-video" autoplay muted loop playsinline preload="metadata">
+                        <source src="<?= htmlspecialchars($BaseURL . $introVideo, ENT_QUOTES, 'UTF-8') ?>" type="video/mp4">
                     </video>
-                </figure>
-                <figure class="orbit-about__photo orbit-about__photo--secondary">
-                    <img src="<?= htmlspecialchars($imageSec, ENT_QUOTES, 'UTF-8') ?>" alt="Strategy" loading="lazy">
+                    <!-- Browsers only allow autoplay while muted, so sound is one click away. -->
+                    <button type="button" class="orbit-about__sound" data-video-sound="orbit-intro-video" aria-pressed="false">
+                        <svg class="orbit-about__sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                        <svg class="orbit-about__sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                        <span class="orbit-about__sound-label">Sound</span>
+                    </button>
                 </figure>
                 <div class="orbit-about__stamp">
                     <strong><?= $expYears ?>+</strong>

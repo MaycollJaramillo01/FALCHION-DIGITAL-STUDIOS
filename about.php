@@ -8,7 +8,7 @@ $metaDescriptionOverride = $AboutContent['who_we_are'];
 
 <section class="about-page-hero">
     <div class="about-page-hero__bg">
-        <img src="assets/img/hero/Brand Strategy & Positioning.webp" alt="About Falchion Digital Studios">
+        <img src="<?= $BaseURL ?>assets/img/section/about.webp" alt="About Falchion Digital Studios">
         <div class="about-page-hero__overlay"></div>
     </div>
     <div class="container about-page-hero__inner">
@@ -46,9 +46,9 @@ $metaDescriptionOverride = $AboutContent['who_we_are'];
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(2, 9, 66, 0.72) 0%,
-        rgba(2, 9, 66, 0.82) 60%,
-        rgba(2, 9, 66, 0.92) 100%
+        rgba(2, 9, 66, 0.42) 0%,
+        rgba(2, 9, 66, 0.6) 60%,
+        rgba(2, 9, 66, 0.82) 100%
     );
 }
 .about-page-hero__inner {
@@ -115,8 +115,16 @@ $metaDescriptionOverride = $AboutContent['who_we_are'];
         </div>
 
         <div class="our-story__right" data-aos="fade-left" data-aos-delay="150">
-            <div class="our-story__img-wrap">
-                <img src="assets/img/hero/Paid Media Campaigns.webp" alt="Falchion Digital Studios team" loading="lazy">
+            <div class="our-story__img-wrap our-story__img-wrap--video">
+                <video id="story-intro-video" autoplay muted loop playsinline preload="metadata">
+                    <source src="<?= htmlspecialchars($BaseURL . 'assets/img/videos/hero2.mp4', ENT_QUOTES, 'UTF-8') ?>" type="video/mp4">
+                </video>
+                <!-- Browsers only allow autoplay while muted, so sound is one click away. -->
+                <button type="button" class="our-story__sound" data-video-sound="story-intro-video" aria-pressed="false">
+                    <svg class="our-story__sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                    <svg class="our-story__sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    <span>Sound</span>
+                </button>
                 <div class="our-story__badge">
                     <strong>10+</strong>
                     <span>Years in<br>Creative</span>
@@ -222,6 +230,41 @@ $metaDescriptionOverride = $AboutContent['who_we_are'];
     object-fit: cover;
     display: block;
 }
+/* The 3D intro reel is 16:9 — show the whole frame instead of cropping it. */
+.our-story__img-wrap--video {
+    aspect-ratio: 16/9;
+    background: #020942;
+}
+.our-story__img-wrap--video video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+.our-story__sound {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 13px;
+    border: 1px solid rgba(255, 241, 0, 0.35);
+    border-radius: 999px;
+    background: rgba(2, 9, 66, 0.78);
+    color: #FFF100;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+.our-story__sound:hover { background: #020942; transform: translateY(-1px); }
+.our-story__sound .our-story__sound-on { display: none; }
+.our-story__sound[aria-pressed="true"] .our-story__sound-on { display: block; }
+.our-story__sound[aria-pressed="true"] .our-story__sound-off { display: none; }
 .our-story__badge {
     position: absolute;
     bottom: 20px;

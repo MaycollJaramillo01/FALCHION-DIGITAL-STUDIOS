@@ -109,3 +109,38 @@ if (filterGroup && filterGrid) {
         });
     });
 }
+
+// Autoplaying showcase videos must start muted; this toggle hands sound back to the visitor.
+document.querySelectorAll('[data-video-sound]').forEach((button) => {
+    const video = document.getElementById(button.getAttribute('data-video-sound'));
+    if (!video) return;
+
+    button.addEventListener('click', () => {
+        video.muted = !video.muted;
+        button.setAttribute('aria-pressed', String(!video.muted));
+        if (!video.muted) video.play().catch(() => {});
+    });
+});
+
+// AOS measures every element's position once, on load. Filtering a gallery
+// resizes the grid, so cards the filter brings back — and any section that moves
+// up into view behind it, such as the CTA band — stay stuck at opacity 0.
+// Re-measure and reveal whatever is on screen after a filter click.
+function revealVisibleAosElements() {
+    if (window.AOS && typeof window.AOS.refresh === 'function') {
+        window.AOS.refresh();
+    }
+
+    document.querySelectorAll('[data-aos]:not(.aos-animate)').forEach((el) => {
+        if (el.offsetParent === null) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add('aos-animate');
+        }
+    });
+}
+
+document.addEventListener('click', (event) => {
+    if (!event.target.closest('[data-filter]')) return;
+    requestAnimationFrame(revealVisibleAosElements);
+});

@@ -12,7 +12,7 @@ unset($_SESSION['contact_success'], $_SESSION['contact_error']);
 <!-- Hero -->
 <section class="ct-hero">
     <div class="ct-hero__bg">
-        <img src="<?= $BaseURL ?>assets/img/hero/seo.webp" alt="Contact Falchion Digital Studios">
+        <img src="<?= $BaseURL ?>assets/img/section/contact.webp" alt="Contact Falchion Digital Studios">
         <div class="ct-hero__overlay"></div>
     </div>
     <div class="container ct-hero__inner">
@@ -30,7 +30,11 @@ unset($_SESSION['contact_success'], $_SESSION['contact_error']);
             </a>
             <a class="ct-hero__pill" href="<?= htmlspecialchars($PhoneRef, ENT_QUOTES, 'UTF-8') ?>">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.32h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
-                <?= htmlspecialchars($Phone, ENT_QUOTES, 'UTF-8') ?>
+                UK: <?= htmlspecialchars($Phone, ENT_QUOTES, 'UTF-8') ?>
+            </a>
+            <a class="ct-hero__pill" href="<?= htmlspecialchars($PhoneUSRef, ENT_QUOTES, 'UTF-8') ?>">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.32h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+                US: <?= htmlspecialchars($PhoneUS, ENT_QUOTES, 'UTF-8') ?>
             </a>
         </div>
     </div>
@@ -140,7 +144,8 @@ unset($_SESSION['contact_success'], $_SESSION['contact_error']);
                         </div>
                         <div>
                             <strong>Phone</strong>
-                            <a href="<?= htmlspecialchars($PhoneRef, ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($Phone, ENT_QUOTES, 'UTF-8') ?></a>
+                            <a href="<?= htmlspecialchars($PhoneRef, ENT_QUOTES, 'UTF-8') ?>">UK: <?= htmlspecialchars($Phone, ENT_QUOTES, 'UTF-8') ?></a>
+                            <a href="<?= htmlspecialchars($PhoneUSRef, ENT_QUOTES, 'UTF-8') ?>">US: <?= htmlspecialchars($PhoneUS, ENT_QUOTES, 'UTF-8') ?></a>
                         </div>
                     </li>
                     <li>
@@ -385,6 +390,7 @@ unset($_SESSION['contact_success'], $_SESSION['contact_error']);
 .ct-contacts li a,
 .ct-contacts li span { font-size: 0.82rem; color: var(--ink); text-decoration: none; font-weight: 500; }
 .ct-contacts li a:hover { color: #020942; text-decoration: underline; }
+.ct-contacts li div a { display: block; }
 .ct-service-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
 .ct-service-links li { border-bottom: 1px solid var(--line); }
 .ct-service-links li:last-child { border-bottom: none; }

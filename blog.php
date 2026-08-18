@@ -11,7 +11,7 @@ $rest     = array_slice($BlogPosts, 1);
 <!-- Hero -->
 <section class="blog-hero">
     <div class="blog-hero__bg">
-        <img src="<?= $BaseURL ?>assets/img/hero/Brand Strategy & Positioning.webp" alt="Falchion Blog">
+        <img src="<?= $BaseURL ?>assets/img/section/blogs.webp" alt="Falchion Blog">
         <div class="blog-hero__overlay"></div>
     </div>
     <div class="container blog-hero__inner">
@@ -117,7 +117,7 @@ $rest     = array_slice($BlogPosts, 1);
 .blog-hero__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(2,9,66,0.5) 0%, rgba(2,9,66,0.82) 55%, rgba(2,9,66,0.97) 100%);
+    background: linear-gradient(to bottom, rgba(2,9,66,0.34) 0%, rgba(2,9,66,0.62) 55%, rgba(2,9,66,0.86) 100%);
 }
 .blog-hero__inner {
     position: relative;

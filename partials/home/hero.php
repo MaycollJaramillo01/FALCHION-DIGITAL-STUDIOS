@@ -21,6 +21,9 @@ if (is_dir($heroMediaDir)) {
 }
 ?>
 <section class="hero dark-hero">
+    <div class="dark-hero__cover" aria-hidden="true">
+        <img src="<?= htmlspecialchars($BaseURL . 'assets/img/section/home.webp', ENT_QUOTES, 'UTF-8') ?>" alt="">
+    </div>
     <div class="container hero__grid">
         <div class="hero__content">
             <span class="eyebrow top-label"><?= htmlspecialchars($HomeHeroCopy['headline'] ?? '', ENT_QUOTES, 'UTF-8') ?></span>

@@ -9,6 +9,7 @@ $metaDescriptionOverride = 'Creative and technical services for branding, web, v
 <!-- Hero -->
 <section class="svcs-hero">
     <div class="svcs-hero__bg">
+        <img src="<?= $BaseURL ?>assets/img/section/services.webp" alt="Falchion Digital Studios Services">
         <div class="svcs-hero__overlay"></div>
     </div>
     <div class="container svcs-hero__inner">
@@ -107,11 +108,17 @@ $metaDescriptionOverride = 'Creative and technical services for branding, web, v
     inset: 0;
     z-index: 0;
 }
+.svcs-hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
 .svcs-hero__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #020942 0%, #0a1560 60%, #020942 100%);
-    opacity: 0.97;
+    background: linear-gradient(to bottom, rgba(2,9,66,0.62) 0%, rgba(2,9,66,0.82) 60%, rgba(2,9,66,0.94) 100%);
 }
 .svcs-hero__inner {
     position: relative;

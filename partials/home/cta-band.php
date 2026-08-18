@@ -33,7 +33,8 @@
                 <div class="cta-forge__info-grid">
                     <div class="cta-forge__info-block">
                         <span class="cta-forge__label">Call us</span>
-                        <strong><a href="tel:+442039962449">+44 020 3996 2449</a></strong>
+                        <strong><a href="tel:+442039962449"><span class="cta-forge__cc">UK:</span> +44 020 3996 2449</a></strong>
+                        <strong><a href="tel:+19513748233"><span class="cta-forge__cc">US:</span> +1 951-374-8233</a></strong>
                     </div>
                     <div class="cta-forge__info-block">
                         <span class="cta-forge__label">Email us</span>

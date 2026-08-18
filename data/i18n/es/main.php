@@ -17,7 +17,7 @@ return [
     'Experience' => 'Mercado principal: Estados Unidos',
     'Coverage' => 'Servicios globales',
     'Schedule' => 'Estrategias orientadas a resultados',
-    'Payment' => 'Planes web desde £472',
+    'Payment' => 'Planes web desde £600 / $650',
     'BilingualNote' => 'Atencion consultiva para crecimiento internacional',
     'Licensed' => 'Branding, marketing digital y performance',
     'Areas' => [

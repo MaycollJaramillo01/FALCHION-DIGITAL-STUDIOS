@@ -10,7 +10,7 @@ $totalProjects = count($PortfolioItems);
 <!-- Hero -->
 <section class="port-hero">
     <div class="port-hero__bg">
-        <img src="<?= $BaseURL ?>assets/img/hero/Paid Media Campaigns.webp" alt="Falchion Portfolio">
+        <img src="<?= $BaseURL ?>assets/img/section/portfolio.webp" alt="Falchion Portfolio">
         <div class="port-hero__overlay"></div>
     </div>
     <div class="container port-hero__inner">
@@ -56,14 +56,27 @@ $totalProjects = count($PortfolioItems);
 
         <!-- Grid -->
         <div class="port-grid" data-filter-grid>
-            <?php foreach ($PortfolioItems as $i => $item): ?>
+            <?php foreach ($PortfolioItems as $i => $item):
+                // Live client sites link out; creative files open in the lightbox.
+                $isFile    = empty($item['url']);
+                $isVideo   = ($item['media_type'] ?? '') === 'video';
+                $mediaHref = $BaseURL . ($item['media'] ?? $item['image']);
+            ?>
             <article class="port-card" data-category="<?= htmlspecialchars($item['category'], ENT_QUOTES, 'UTF-8') ?>" data-aos="fade-up" data-aos-delay="<?= ($i % 3) * 80 ?>">
-                <a class="port-card__media" href="<?= htmlspecialchars($item['url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener">
+                <a class="port-card__media<?= $isFile ? ' glightbox' : '' ?>"
+                   href="<?= htmlspecialchars($isFile ? $mediaHref : $item['url'], ENT_QUOTES, 'UTF-8') ?>"
+                   <?php if ($isFile): ?>data-gallery="portfolio" data-type="<?= $isVideo ? 'video' : 'image' ?>" data-title="<?= htmlspecialchars($item['title'], ENT_QUOTES, 'UTF-8') ?>"<?php else: ?>target="_blank" rel="noopener"<?php endif; ?>>
                     <img src="<?= htmlspecialchars($BaseURL . $item['image'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($item['title'], ENT_QUOTES, 'UTF-8') ?>" loading="lazy">
+                    <?php if ($isVideo): ?><span class="port-card__play" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><?php endif; ?>
                     <div class="port-card__overlay">
                         <span class="port-card__view">
+                            <?php if ($isFile): ?>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                            <?= $isVideo ? 'Play Video' : 'View Design' ?>
+                            <?php else: ?>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                             View Project
+                            <?php endif; ?>
                         </span>
                     </div>
                 </a>
@@ -89,6 +102,14 @@ $totalProjects = count($PortfolioItems);
 
 <!-- CTA -->
 <?php include __DIR__ . '/partials/home/cta-band.php'; ?>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });
+});
+</script>
 
 <style>
 /* ── Hero ── */
@@ -254,6 +275,23 @@ $totalProjects = count($PortfolioItems);
     transition: transform 0.4s ease;
 }
 .port-card:hover .port-card__media img { transform: scale(1.04); }
+.port-card__play {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #FFF100;
+    color: #020942;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    transition: transform 0.25s ease;
+    pointer-events: none;
+}
+.port-card:hover .port-card__play { transform: scale(1.12); }
 .port-card__overlay {
     position: absolute;
     inset: 0;

@@ -2,6 +2,7 @@
 $catalog = require __DIR__ . '/../../data/i18n/en/catalog.php';
 $webPlans = $catalog['WebCollectionPremium'] ?? [];
 $socialMedia = $catalog['SocialMediaManagement'] ?? [];
+$socialPlans = $catalog['SocialMediaPlans'] ?? [];
 $adServices = $catalog['AdServices'] ?? [];
 $logoBranding = $catalog['LogoBrandingServices'] ?? [];
 $addons = $catalog['PremiumAddOns'] ?? [];
@@ -20,8 +21,13 @@ $optionalAddons = $catalog['OptionalAddons'] ?? [];
             <?php foreach ($webPlans as $i => $plan): ?>
             <div class="pricing-card <?= $i === 1 ? 'pricing-card--featured' : '' ?>">
                 <?php if ($i === 1): ?><span class="pricing-card__badge">Most Popular</span><?php endif; ?>
+                <?php if (!empty($plan['image'])): ?>
+                <div class="pricing-card__art">
+                    <img src="<?= htmlspecialchars($BaseURL . $plan['image'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($plan['name'], ENT_QUOTES, 'UTF-8') ?>" loading="lazy">
+                </div>
+                <?php endif; ?>
                 <div class="pricing-card__header">
-                    <h3><?= htmlspecialchars($plan['name'], ENT_QUOTES, 'UTF-8') ?></h3>
+                    <h3><?= htmlspecialchars($plan['name'], ENT_QUOTES, 'UTF-8') ?><?php if (!empty($plan['plan_label'])): ?> <span class="pricing-card__plan-label"><?= htmlspecialchars($plan['plan_label'], ENT_QUOTES, 'UTF-8') ?></span><?php endif; ?></h3>
                     <p class="pricing-card__tagline"><?= htmlspecialchars($plan['tagline'], ENT_QUOTES, 'UTF-8') ?></p>
                 </div>
                 <div class="pricing-card__price"><?= htmlspecialchars($plan['price'], ENT_QUOTES, 'UTF-8') ?></div>
@@ -47,6 +53,44 @@ $optionalAddons = $catalog['OptionalAddons'] ?? [];
         <div class="pricing-addons-note">
             <?php foreach ($optionalAddons as $addon): ?>
             <span><?= htmlspecialchars($addon, ENT_QUOTES, 'UTF-8') ?></span>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+
+        <?php if (!empty($socialPlans)): ?>
+        <div class="pricing-header" style="margin-top: 80px;">
+            <span class="pricing-eyebrow">Social Media</span>
+            <h2 class="pricing-header__title">Social media management plans</h2>
+            <p class="pricing-header__desc">Monthly content, motion and advertising handled by our team — pick the shield that matches your ambition.</p>
+        </div>
+
+        <div class="pricing-grid">
+            <?php foreach ($socialPlans as $i => $plan): ?>
+            <div class="pricing-card <?= $i === 1 ? 'pricing-card--featured' : '' ?>">
+                <?php if ($i === 1): ?><span class="pricing-card__badge">Most Popular</span><?php endif; ?>
+                <?php if (!empty($plan['image'])): ?>
+                <div class="pricing-card__art">
+                    <img src="<?= htmlspecialchars($BaseURL . $plan['image'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($plan['name'], ENT_QUOTES, 'UTF-8') ?>" loading="lazy">
+                </div>
+                <?php endif; ?>
+                <div class="pricing-card__header">
+                    <h3><?= htmlspecialchars($plan['name'], ENT_QUOTES, 'UTF-8') ?> <span class="pricing-card__plan-label"><?= htmlspecialchars($plan['plan_label'], ENT_QUOTES, 'UTF-8') ?></span></h3>
+                    <p class="pricing-card__tagline"><?= htmlspecialchars($plan['platforms'], ENT_QUOTES, 'UTF-8') ?></p>
+                </div>
+                <div class="pricing-card__price"><?= htmlspecialchars($plan['price'], ENT_QUOTES, 'UTF-8') ?></div>
+                <p class="pricing-card__desc"><?= htmlspecialchars($plan['goal'], ENT_QUOTES, 'UTF-8') ?></p>
+                <ul class="pricing-card__list">
+                    <?php foreach ($plan['includes'] as $item): ?>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        <?= htmlspecialchars($item, ENT_QUOTES, 'UTF-8') ?>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+                <div class="pricing-card__footer">
+                    <a class="button <?= $i === 1 ? 'button--yellow' : 'button--ghost' ?>" href="<?= htmlspecialchars(falchion_url('contact.php#contact-form'), ENT_QUOTES, 'UTF-8') ?>">Get Started</a>
+                </div>
+            </div>
             <?php endforeach; ?>
         </div>
         <?php endif; ?>

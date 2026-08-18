@@ -9,7 +9,7 @@
                 <a class="button button--pill" href="<?= htmlspecialchars(falchion_url('about.php'), ENT_QUOTES, 'UTF-8') ?>">About us</a>
             </div>
             <div class="intro-statement__visual" data-aos="fade-left" data-aos-delay="150">
-                <img src="assets/img/hero/Paid Media Campaigns.webp" alt="<?= htmlspecialchars($Company, ENT_QUOTES, 'UTF-8') ?>" loading="lazy">
+                <img src="<?= htmlspecialchars($BaseURL . 'assets/img/section/creative-team.webp', ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($Company, ENT_QUOTES, 'UTF-8') ?> creative team" loading="lazy">
             </div>
         </div>
     </div>
