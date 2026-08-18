@@ -7,11 +7,8 @@ $Pricing_Plans = [
         "tag" => t("Ideal para tu primera presencia online", "Ideal for your first online presence"),
         "price" => 472,
         "old_price" => 670,
-        "price_usd" => 600,
-        "old_price_usd" => 850,
         "type" => t("Configuracion unica", "One-time setup"),
         "maintenance" => 118,
-        "maintenance_usd" => 150,
         "icon" => "fa-paper-plane",
         "features" => [
             t("Diseno web", "Website design"),
@@ -29,11 +26,8 @@ $Pricing_Plans = [
         "tag" => t("Base solida para crecimiento local", "Strong foundation for local growth"),
         "price" => 945,
         "old_price" => 1260,
-        "price_usd" => 1200,
-        "old_price_usd" => 1600,
         "type" => t("Configuracion unica", "One-time setup"),
         "maintenance" => 118,
-        "maintenance_usd" => 150,
         "icon" => "fa-rocket",
         "features" => [
             t("Diseno web", "Website design"),
@@ -56,11 +50,8 @@ $Pricing_Plans = [
         "tag" => t("Tecnologia WordPress y crecimiento", "WordPress technology and growth"),
         "price" => 1417,
         "old_price" => 1969,
-        "price_usd" => 1800,
-        "old_price_usd" => 2500,
         "type" => t("Configuracion unica", "One-time setup"),
         "maintenance" => 118,
-        "maintenance_usd" => 150,
         "icon" => "fa-crown",
         "features" => [
             t("Tecnologia WordPress", "WordPress technology"),
@@ -126,20 +117,19 @@ $Pricing_Plans = [
 
                     <div class="pricing-ultra-price-wrap">
                         <div class="pricing-ultra-discount">
-                            <span class="pricing-ultra-old">£<?= number_format((int)$plan['old_price']) ?> ($<?= number_format((int)$plan['old_price_usd']) ?>)</span>
-                            <span class="pricing-ultra-save"><?= htmlspecialchars(t('Ahorra', 'Save'), ENT_QUOTES, 'UTF-8') ?> £<?= number_format(max(0, (int)$plan['old_price'] - (int)$plan['price'])) ?> ($<?= number_format(max(0, (int)$plan['old_price_usd'] - (int)$plan['price_usd'])) ?>)</span>
+                            <span class="pricing-ultra-old">£<?= number_format((int)$plan['old_price']) ?></span>
+                            <span class="pricing-ultra-save"><?= htmlspecialchars(t('Ahorra', 'Save'), ENT_QUOTES, 'UTF-8') ?> £<?= number_format(max(0, (int)$plan['old_price'] - (int)$plan['price'])) ?></span>
                         </div>
                         <div class="pricing-ultra-price">
                             <span class="pricing-ultra-currency">£</span>
                             <span class="pricing-ultra-amount"><?= number_format((int)$plan['price']) ?></span>
-                            <span class="pricing-ultra-usd">($<?= number_format((int)$plan['price_usd']) ?>)</span>
                         </div>
                         <span class="pricing-ultra-type"><?= htmlspecialchars($plan['type'], ENT_QUOTES, 'UTF-8') ?></span>
                     </div>
 
                     <div class="pricing-ultra-maintenance">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
-                        <span><?= htmlspecialchars(t('Mantenimiento', 'Maintenance'), ENT_QUOTES, 'UTF-8') ?>: <strong>£<?= number_format((int)$plan['maintenance']) ?> ($<?= number_format((int)$plan['maintenance_usd']) ?>)/<?= htmlspecialchars(t('mes', 'month'), ENT_QUOTES, 'UTF-8') ?></strong></span>
+                        <span><?= htmlspecialchars(t('Mantenimiento', 'Maintenance'), ENT_QUOTES, 'UTF-8') ?>: <strong>£<?= number_format((int)$plan['maintenance']) ?>/<?= htmlspecialchars(t('mes', 'month'), ENT_QUOTES, 'UTF-8') ?></strong></span>
                     </div>
 
                     <ul class="pricing-ultra-features">

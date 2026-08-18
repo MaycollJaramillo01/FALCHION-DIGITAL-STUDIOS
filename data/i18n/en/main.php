@@ -17,7 +17,7 @@ return [
     'Experience' => 'Primary market: United States',
     'Coverage' => 'Global services',
     'Schedule' => 'Strategies built around results',
-    'Payment' => 'Website plans from USD 600',
+    'Payment' => 'Website plans from £472',
     'BilingualNote' => 'Consultative guidance for international growth',
     'Licensed' => 'Branding, digital marketing and performance',
     'Areas' => [
