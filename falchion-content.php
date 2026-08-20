@@ -24,6 +24,10 @@ function falchion_url(string $path): string
 
     // Prepend BaseURL so links work from any subdirectory (e.g. service/)
     $base = rtrim(falchion_base_url(), '/');
+
+    // Vercel exposes the homepage at `/`; `/index` is not a public route.
+    // Keep any language query or fragment while canonicalising home links.
+    $relative = preg_replace('~^/?index(?:\.php)?(?=([?#]|$))~i', '', $relative) ?? $relative;
     $relative = ltrim($relative, '/');
     return $base . '/' . $relative;
 }

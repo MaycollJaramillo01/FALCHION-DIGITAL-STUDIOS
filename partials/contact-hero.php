@@ -46,7 +46,7 @@ $contactDirectIcon = !empty($Phone2) ? 'fa-brands fa-whatsapp' : 'fa-solid fa-en
                 </div>
 
                 <div class="contact-hero-v2__crumbs" data-anim="up" data-delay="4">
-                    <a href="index.php">Inicio</a>
+                    <a href="<?= htmlspecialchars(falchion_url('index.php'), ENT_QUOTES, 'UTF-8') ?>">Inicio</a>
                     <i class="fa-solid fa-chevron-right"></i>
                     <span><?= htmlspecialchars($contactTitle, ENT_QUOTES, 'UTF-8') ?></span>
                 </div>

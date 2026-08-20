@@ -1,0 +1,9 @@
+.git/
+.vercel/
+.claude/
+Cambios/
+FALCHION-DIGITA.zip
+*.zip
+node_modules/
+vendor/
+*.log

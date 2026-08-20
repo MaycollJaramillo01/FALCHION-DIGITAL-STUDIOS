@@ -34,7 +34,7 @@ $ctaText = t('Solicitar asesoria', 'Request consultation');
     <nav class="page-hero__breadcrumbs" aria-label="breadcrumb" data-anim="down" data-delay="1">
       <ul class="breadcrumbs-list">
         <li>
-            <a href="index.php">
+            <a href="<?= htmlspecialchars(falchion_url('index.php'), ENT_QUOTES, 'UTF-8') ?>">
                 <i class="fa-solid fa-house"></i> Inicio
             </a>
         </li>

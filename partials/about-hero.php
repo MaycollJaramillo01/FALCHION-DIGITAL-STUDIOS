@@ -35,7 +35,7 @@ $heroKeywords = [
         </h1>
 
         <nav class="about-hero-v3__crumbs" aria-label="breadcrumb">
-            <a href="index.php">Inicio</a>
+            <a href="<?= htmlspecialchars(falchion_url('index.php'), ENT_QUOTES, 'UTF-8') ?>">Inicio</a>
             <span class="about-hero-v3__sep">*</span>
             <span aria-current="page"><?= htmlspecialchars($currentPage, ENT_QUOTES, 'UTF-8') ?></span>
         </nav>

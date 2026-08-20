@@ -64,7 +64,7 @@ $breadcrumbJsonLd = [
             '@type' => 'ListItem',
             'position' => 1,
             'name' => 'Inicio',
-            'item' => rtrim((string)($BaseURL ?? ''), '/') . '/' . ltrim(i18n_localized_url('index.php'), '/')
+            'item' => falchion_url('index.php')
         ],
         [
             '@type' => 'ListItem',

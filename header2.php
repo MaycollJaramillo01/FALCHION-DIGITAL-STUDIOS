@@ -63,11 +63,11 @@
         <div class="th-menu-area text-center">
             <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="index.php"><img data-anim="fade"  src="assets/img/logo-white.png" alt="Rakar"></a>
+                <a href="<?= htmlspecialchars($BaseURL, ENT_QUOTES, 'UTF-8') ?>"><img data-anim="fade"  src="assets/img/logo-white.png" alt="Rakar"></a>
             </div>
             <div class="th-mobile-menu">
                 <ul>
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="<?= htmlspecialchars($BaseURL, ENT_QUOTES, 'UTF-8') ?>">Home</a></li>
                     <li><a href="about.php">About Us</a></li>
                     <li><a href="services.php">Our Services</a></li>
                     <li><a href="gallery.php">Gallery</a></li>
@@ -149,13 +149,13 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="index.php"><img data-anim="fade"  src="assets/img/logo-white.png" alt="Logo"></a>
+                                <a href="<?= htmlspecialchars($BaseURL, ENT_QUOTES, 'UTF-8') ?>"><img data-anim="fade"  src="assets/img/logo-white.png" alt="Logo"></a>
                             </div>
                         </div>
                         <div class="col-auto">
                             <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
-                                    <li><a href="index.php">Home</a></li>
+                                    <li><a href="<?= htmlspecialchars($BaseURL, ENT_QUOTES, 'UTF-8') ?>">Home</a></li>
                                     <li><a href="about.php">About Us</a></li>
                                     <li><a href="services.php">Our Services</a></li>
                                     <li><a href="gallery.php">Gallery</a></li>
