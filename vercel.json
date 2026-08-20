@@ -113,7 +113,11 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/index.php"
+      "status": 404,
+      "headers": {
+        "Cache-Control": "public, max-age=60",
+        "X-Robots-Tag": "noindex, nofollow"
+      }
     }
   ]
 }

@@ -44,6 +44,12 @@ function falchion_base_url(): string
     $scheme   = ($isVercel || $proto === 'https' || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')) ? 'https' : 'http';
     $host   = (string) ($_SERVER['HTTP_HOST'] ?? 'localhost');
 
+    // Deployments are mounted at the domain root. Never derive this from the
+    // incoming request path: a rewritten 404 would otherwise poison asset URLs.
+    if ($isVercel) {
+        return $scheme . '://' . $host . '/';
+    }
+
     // Resolve the project root via filesystem: this file lives at <root>/falchion-content.php
     $projectRoot = str_replace('\\', '/', __DIR__);          // e.g. /xampp/htdocs/PROYECTO
     $docRoot     = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT'] ?? '');

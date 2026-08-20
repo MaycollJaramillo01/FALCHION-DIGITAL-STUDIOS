@@ -1,5 +1,4 @@
 <?php
-@session_start();
 
 require_once __DIR__ . '/i18n.php';
 i18n_start_buffer();
@@ -34,6 +33,12 @@ function detectBaseURL() {
   $proto    = $_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '';
   $scheme   = ($isVercel || $proto === 'https' || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')) ? 'https' : 'http';
   $host   = $_SERVER['HTTP_HOST'] ?? 'localhost';
+
+  // Vercel rewrites must never turn the requested path into the asset base URL.
+  if ($isVercel) {
+    return $scheme . '://' . $host . '/';
+  }
+
   $script = $_SERVER['SCRIPT_NAME'] ?? '';
   $dir    = rtrim(str_replace('\\', '/', dirname($script)), '/.');
   $path   = $dir ? $dir . '/' : '/';

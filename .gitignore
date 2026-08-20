@@ -26,3 +26,5 @@ vendor/
 # Source material and archives (kept locally, not in the repo)
 Cambios/
 *.zip
+
+.vercel

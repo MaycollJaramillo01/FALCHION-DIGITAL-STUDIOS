@@ -16,6 +16,10 @@ if ($service === null) {
     exit;
 }
 
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
 $pageTitle = $service['title'];
 $metaTitleOverride = $Company . ' | ' . $service['title'];
 $metaDescriptionOverride = $service['description'];

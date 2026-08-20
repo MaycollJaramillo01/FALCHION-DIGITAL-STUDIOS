@@ -1,4 +1,8 @@
-<?php @session_start(); ?>
+<?php
+http_response_code(404);
+header('Cache-Control: public, max-age=60');
+header('X-Robots-Tag: noindex, nofollow');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

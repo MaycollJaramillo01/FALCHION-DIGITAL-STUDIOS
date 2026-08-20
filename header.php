@@ -1,6 +1,18 @@
 <?php
-@session_start();
 require_once __DIR__ . '/falchion-content.php';
+
+$hasPersonalizedLocale = isset($_GET['lang']) || isset($_COOKIE['bb_site_lang']);
+$hasActiveSession = session_status() === PHP_SESSION_ACTIVE;
+
+if (!headers_sent()) {
+    if ($hasActiveSession || $hasPersonalizedLocale) {
+        header('Cache-Control: private, no-store');
+    } else {
+        // Keep browsers revalidating while Vercel serves anonymous pages from CDN.
+        header('Cache-Control: public, max-age=0, must-revalidate');
+        header('Vercel-CDN-Cache-Control: public, s-maxage=3600, stale-while-revalidate=86400');
+    }
+}
 
 $currentFile = falchion_current_page();
 $isHomePage = $currentFile === 'index.php';
